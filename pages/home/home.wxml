@@ -1,2 +1,24 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<!--页面首页-->
+<view class="container">
+  <!-- ad -->
+
+  <view class="orderbox">
+    <view class="orderbox-left">
+      <text class="title">开始点餐</text>
+      <text class="prop">在线点不排队</text>
+
+    </view>
+    <view class="orderbox-right">
+    <!-- 充值和预定 TODO：预定页面 -->
+      <view class="charge">
+      <text class="title">充值</text>
+      <text class="prop">充100反10</text>
+      </view>
+      <view class="reserve">
+      <text class="title">预定</text>
+      <text class="prop">到店即就餐</text>
+      </view>
+    </view>
+  </view>
+
+</view>

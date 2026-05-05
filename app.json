@@ -6,11 +6,37 @@
     "pages/orderDetail/orderDetail",
     "pages/ad/ad",
     "pages/booking/booking",
-    "pages/shop/shop"
+    "pages/shop/shop",
+    "pages/shopCart/shopCart"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#1989fa",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/getNumber/getNumber",
+        "text": "取号"
+      },
+      {
+        "pagePath": "pages/orderDetail/orderDetail",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
   },
   "renderer": "skyline",
   "rendererOptions": {

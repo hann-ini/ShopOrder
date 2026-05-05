@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentIndex: 3,
+    tabbarList: [
+      { pagePath: 'pages/home/home', text: '首页', icon: 'home-o' },
+      { pagePath: 'pages/getNumber/getNumber', text: '取号', icon: 'qr' },
+      { pagePath: 'pages/orderDetail/orderDetail', text: '订单', icon: 'list-o' },
+      { pagePath: 'pages/my/my', text: '我的', icon: 'user-o' }
+    ]
   },
 
   /**

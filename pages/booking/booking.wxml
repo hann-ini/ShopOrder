@@ -1,2 +1,4 @@
 <!--pages/booking/booking.wxml-->
-<text>pages/booking/booking.wxml</text>
+<view class="container">
+  <text>booking 页面</text>
+</view>

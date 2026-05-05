@@ -3,7 +3,7 @@
   <!-- ad -->
 
   <view class="orderbox">
-    <view class="orderbox-left">
+    <view class="orderbox-left" bindtap="goToShop">
       <text class="title">开始点餐</text>
       <text class="prop">在线点不排队</text>
 
@@ -22,3 +22,6 @@
   </view>
 
 </view>
+
+<tabbar current-index="{{ currentIndex }}" list="{{ tabbarList }}" />
+

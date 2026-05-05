@@ -1,0 +1,13 @@
+<view class="tabbar">
+  <view 
+    wx:for="{{ list }}" 
+    wx:key="index"
+    class="tabbar-item {{ currentIndex === index ? 'active' : '' }}"
+    bindtap="switchTab"
+    data-index="{{ index }}"
+    data-path="{{ item.pagePath }}"
+  >
+    <van-icon name="{{ item.icon }}" size="24" />
+    <text>{{ item.text }}</text>
+  </view>
+</view>

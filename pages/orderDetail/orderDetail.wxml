@@ -1,2 +1,6 @@
 <!--pages/orderDetail/orderDetail.wxml-->
-<text>pages/orderDetail/orderDetail.wxml</text>
+<view class="container">
+  <text>pages/orderDetail/orderDetail.wxml</text>
+</view>
+
+<tabbar current-index="{{ currentIndex }}" list="{{ tabbarList }}" />

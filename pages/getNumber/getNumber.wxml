@@ -1,2 +1,6 @@
 <!--pages/getNumber/getNumber.wxml-->
-<text>pages/getNumber/getNumber.wxml</text>
+<view class="container">
+  <text>pages/getNumber/getNumber.wxml</text>
+</view>
+
+<tabbar current-index="{{ currentIndex }}" list="{{ tabbarList }}" />

@@ -1,2 +1,87 @@
 <!--pages/shop/shop.wxml-->
-<text>pages/shop/shop.wxml</text>
+<view class="nav-bar-wrap">
+  <van-nav-bar
+    title="点餐"
+    left-arrow
+    bind:click-left="onClickLeft"
+  />
+</view>
+
+<view class="banner-ad">广告轮播图位置</view>
+
+<view class="main-content">
+
+  <van-sidebar active-key="{{ activeKey }}" bind:change="onSidebarChange">
+    <van-sidebar-item wx:for="{{ categories }}" wx:key="id" title="{{ item.name }}" />
+  </van-sidebar>
+
+  <scroll-view class="menu-content" scroll-y bindscroll="onScroll">
+    <view wx:for="{{ categories }}" wx:key="id" id="category-{{ item.id }}">
+      <view class="category-title">{{ item.name }}</view>
+      <view class="menu-item" wx:for="{{ menuData[item.id] }}" wx:key="id" wx:for-item="food">
+        <view class="menu-img">
+          <image src="{{ food.image }}" mode="aspectFill" />
+        </view>
+        <view class="menu-info">
+          <text class="menu-name">{{ food.name }}</text>
+          <text class="menu-desc">{{ food.desc }}</text>
+          <view class="menu-footer">
+            <text class="menu-price">¥{{ food.price }}</text>
+            <view class="add-btn" bindtap="addFood" data-food="{{ food }}">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <van-goods-action>
+  <van-goods-action-icon icon="chat-o" text="商家" bind:click="onClickIcon" />
+  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="showCartActionSheet" />
+  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+</van-goods-action>
+
+<van-action-sheet
+  show="{{ showActionSheet }}"
+  title="已添加商品"
+  bind:close="onActionSheetClose"
+>
+  <view wx:if="{{ cartItems.length > 0 }}">
+    <view class="cart-items">
+      <view class="cart-item" wx:for="{{ cartItems }}" wx:key="id">
+        <view class="checkbox-wrap" bindtap="toggleCartItem" data-id="{{ item.id }}">
+          <view class="checkbox-icon {{ item.checked ? 'checked' : '' }}">
+            <text wx:if="{{ item.checked }}" class="check-mark">✓</text>
+          </view>
+        </view>
+        <image class="cart-item-img" src="{{ item.image }}" mode="aspectFill" />
+        <view class="cart-item-info">
+          <text class="cart-item-name">{{ item.name }}</text>
+          <text class="cart-item-price">¥{{ item.price }}</text>
+        </view>
+        <view class="quantity-control">
+          <view class="qty-btn minus" bindtap="decreaseQty" data-id="{{ item.id }}">-</view>
+          <text class="qty-num">{{ item.quantity }}</text>
+          <view class="qty-btn plus" bindtap="increaseQty" data-id="{{ item.id }}">+</view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="cart-footer" bindtap="toggleAllChecked">
+      <view class="checkbox-icon {{ isAllChecked ? 'checked' : '' }}">
+        <text wx:if="{{ isAllChecked }}" class="check-mark">✓</text>
+      </view>
+      <text class="all-check-text">全选</text>
+    </view>
+    
+    <van-submit-bar
+      price="{{ totalPrice }}"
+      button-text="提交订单"
+      bind:submit="onSubmitOrder"
+      disabled="{{ submitDisabled }}"
+      loading="{{ isLoading }}"
+      safe-area-inset-bottom
+    />
+  </view>
+  <view wx:else class="empty-cart-tip">购物车是空的</view>
+</van-action-sheet>
+
+</view>
